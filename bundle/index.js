@@ -31,6 +31,46 @@ console.log({ istriSaya });
 /**
  * Array tuple type
  */
-let gebetanSaya;
+let gebetanSaya; //penulisannya seperti ini
 gebetanSaya = ["Siti", 23, false];
 console.log({ gebetanSaya });
+let temanSaya;
+temanSaya = {
+    namaTeman: "Ilham",
+    isKampret: true,
+};
+console.log({ temanSaya });
+/**
+ * Function
+ */
+function penjumlahan(a, b) {
+    let jumlah = a + b;
+    console.log(jumlah);
+}
+penjumlahan(1, 2);
+const create = () => {
+    return "Terima kasih";
+};
+console.log(create());
+let umurAgnes;
+umurAgnes = 23;
+const komputer = (processor) => {
+    console.log(`Berhasil membuat processor dengan: 
+        processor: ${processor.brand} 
+        base model: ${processor.baseModel}
+        tipe model: ${processor.modelName} 
+        kecepatan clock: ${processor.clockSize}
+        turbo boost enable: ${processor.turboBoost}
+        `);
+};
+const intelCoreI5 = {
+    brand: "intel",
+    baseModel: "core i5",
+    modelName: "i5-11029f",
+    clockSize: 4,
+    turboBoost: false
+};
+komputer(intelCoreI5);
+/**
+ * MENIT 56
+ */
