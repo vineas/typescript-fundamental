@@ -54,23 +54,41 @@ const create = () => {
 console.log(create());
 let umurAgnes;
 umurAgnes = 23;
-const komputer = (processor) => {
+const createIntel = (processor) => {
     console.log(`Berhasil membuat processor dengan: 
         processor: ${processor.brand} 
         base model: ${processor.baseModel}
         tipe model: ${processor.modelName} 
         kecepatan clock: ${processor.clockSize}
+        total core: ${processor.coreTotal}
         turbo boost enable: ${processor.turboBoost}
         `);
 };
-const intelCoreI5 = {
+const createAMD = (processor) => {
+    console.log(`Berhasil membuat processor dengan: 
+        processor: ${processor.brand} 
+        base model: ${processor.baseModel}
+        tipe model: ${processor.modelName} 
+        kecepatan clock: ${processor.clockSize}
+        total core: ${processor.coreTotal}
+        turbo boost enable: ${processor.precisionBoost}
+        `);
+};
+const CoreI5 = {
     brand: "intel",
     baseModel: "core i5",
     modelName: "i5-11029f",
     clockSize: 4,
-    turboBoost: false
+    coreTotal: "Octa Core",
+    turboBoost: true
 };
-komputer(intelCoreI5);
-/**
- * MENIT 56
- */
+createIntel(CoreI5);
+const Ryzen5 = {
+    brand: "AMD",
+    baseModel: "ryzen 5",
+    modelName: "ryzen 5-5629H",
+    clockSize: 5,
+    coreTotal: "Hexa Core",
+    precisionBoost: true
+};
+createAMD(Ryzen5);

@@ -84,33 +84,62 @@ umurAgnes = 23;
 /**
  * Interface
  */
+type CoreCount = 2 | 4 | 8 | 12
+type CoreName = "Dual Core" | "Quad Core" | "Octa Core" | "Hexa Core"
+type Core = CoreCount | CoreName
 interface IProcessor {
     brand: string,
     baseModel: string,
     modelName: string,
+    coreTotal: Core,
     clockSize: number
 }
-interface IProcessor {
+
+interface Intel extends IProcessor {
     turboBoost: boolean;
 }
 
-const komputer = (processor: IProcessor) : void => {
+interface AMD extends IProcessor {
+    precisionBoost: boolean;
+}
+
+const createIntel = (processor: Intel) : void => {
     console.log(`Berhasil membuat processor dengan: 
         processor: ${processor.brand} 
         base model: ${processor.baseModel}
         tipe model: ${processor.modelName} 
         kecepatan clock: ${processor.clockSize}
+        total core: ${processor.coreTotal}
         turbo boost enable: ${processor.turboBoost}
         `);
 }
-const intelCoreI5 = {
+const createAMD = (processor: AMD) : void => {
+    console.log(`Berhasil membuat processor dengan: 
+        processor: ${processor.brand} 
+        base model: ${processor.baseModel}
+        tipe model: ${processor.modelName} 
+        kecepatan clock: ${processor.clockSize}
+        total core: ${processor.coreTotal}
+        precision boost enable: ${processor.precisionBoost}
+        `);
+}
+
+const CoreI5: Intel = {
     brand: "intel",
     baseModel: "core i5",
     modelName: "i5-11029f",
     clockSize: 4,
-    turboBoost: false
+    coreTotal: "Octa Core",
+    turboBoost: true
 }
-komputer(intelCoreI5);
-/**
- * MENIT 56
- */
+createIntel(CoreI5);
+
+const Ryzen5: AMD = {
+    brand: "AMD",
+    baseModel: "ryzen 5",
+    modelName: "ryzen 5-5629H",
+    clockSize: 5,
+    coreTotal: "Hexa Core",
+    precisionBoost: true
+}
+createAMD(Ryzen5);
